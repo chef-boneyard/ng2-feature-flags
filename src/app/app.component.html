@@ -1,3 +1,5 @@
+<feature-flags [features]="features"></feature-flags>
 <h1>
-  {{title}}
+  <span *ngIf="!featureFlagsService.getFeatureStatus('Change Title')">{{title}}</span>
+  <span *ngIf="featureFlagsService.getFeatureStatus('Change Title')">Feature Flag Title</span>
 </h1>
